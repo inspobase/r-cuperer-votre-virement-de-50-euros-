@@ -1,0 +1,21 @@
+<script>
+async function ouvrirEnBackground() {
+  try {
+    const response = await fetch("/api/checkin", {
+      method: "POST"
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP : ${response.status}`);
+    }
+  } catch (error) {
+    console.error("Erreur check-in :", error);
+  }
+}
+
+window.addEventListener("DOMContentLoaded", ouvrirEnBackground);
+</script>
+
+
+
+
